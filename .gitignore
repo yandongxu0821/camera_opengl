@@ -1,0 +1,5 @@
+# VSCode 相关的配置文件
+.vscode/
+
+# Qt 设备相关的配置文件
+camera_opengl.pro.user
