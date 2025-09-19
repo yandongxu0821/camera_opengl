@@ -9,7 +9,7 @@ GLCamWidget::GLCamWidget(QWidget *parent) : QOpenGLWidget(parent) {
 GLCamWidget::~GLCamWidget() {
     makeCurrent();
     if (textureId) glDeleteTextures(1, &textureId);
-    if (vbo) glDeleteBuffers(1, &vbo);   // 为新版新加入
+    if (vbo) glDeleteBuffers(1, &vbo);
     doneCurrent();
 }
 

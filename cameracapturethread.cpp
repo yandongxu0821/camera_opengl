@@ -20,6 +20,7 @@ void CameraCaptureThread::stop() {
     wait();
 }
 
+//! \brief 预处理帧尺寸为正方形
 QImage CameraCaptureThread::preProcessToSquare(const QImage& input, int squareSize = HEIGHT) {
     int w = input.width();
     int h = input.height();

@@ -16,7 +16,10 @@ MainWindow::MainWindow(QWidget *parent)
     connect(cameraThread, &CameraCaptureThread::frameReadyForDisplay, glCamWidget, &GLCamWidget::onNewFrame);
     // 初始化
     auto* detector = new RknnFaceDetector(this);
-    detector->loadModel("r");
+    if (!detector->loadModel("/userdata/movenet_lightning.rknn")) {
+        qWarning() << "模型加载失败！";
+        return;
+    }
 
     connect(cameraThread, &CameraCaptureThread::frameReadyForInfer, detector, &RknnFaceDetector::detect);
     // connect(detector, &RknnFaceDetector::detectionFinished, this, &MainWindow::onDetectionFinished);
